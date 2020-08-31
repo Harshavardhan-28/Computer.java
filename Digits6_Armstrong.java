@@ -1,64 +1,54 @@
-//Program to check if the number is an armstrong number or not
+//Program to check if a number is an armstrong number or not
 import java.util.Scanner;
-public class Digits6_Armstrong
+public class Armstrong2
 {
-    int num;
+    int num, counting;
     void getNumber ()
     {
         Scanner sc = new Scanner (System.in);
         System.out.println ("Enter the number: ");
         num = sc.nextInt ();
-    }
-    
-    double Prod (double a, double b)
-    {
-        double prod = Math.pow(a,b);
-        return prod;
-    }
-    
-    double Calculate ()
-    {
-        int n1 = num;
-        int count = 0;
         
-        while (n1!=0)
-        {
-            n1 = n1/10;
-            count++;
+    }
+    void getDigit()
+    {
+      int n= num;
+      int count = 0;
+      while(n!=0){
+         n= n/10;
+         count++;
+          
+          
+          
+          
         }
+        counting= count;
         
-        int n2 = num;
-        int d;
+        
+        
+    }
+    void calculate ()
+    {
         double sum = 0;
-        
-        while (n2!=0)
+        int n = num;
+        while (n!=0)
         {
-            d = n2 % 10;
-            n2 = n2/10;
-            sum = sum + Prod((double)d,(double)count);
+            int d = n%10;
+            n = n/10;
+            sum = sum + (Math.pow(d, counting));
         }
         
-        return sum;
-    }
-    
-    void check ()
-    {
-        if (Calculate() == num)
-        {
-            System.out.println ("The number is a Armstrong Number.");
-        }
-        
+        if (sum == num)
+            System.out.println ("The number entered is an armstrong number");
         else
-        {
-            System.out.println ("The number is not a Armstrong Number.");
-        }
+            System.out.println ("The number entered is not an armstrong number");
     }
     
-    public static void main ()
+    public static void m ()
     {
-        Digits6_Armstrong obj = new Digits6_Armstrong ();
-        obj.getNumber ();
-        obj.Calculate ();
-        obj.check ();
+        Armstrong2 obj = new Armstrong2 ();
+        obj.getNumber();
+        obj.getDigit();
+        obj.calculate ();
     }
 }
