@@ -1,6 +1,6 @@
 //Program to check if a number is an armstrong number or not
 import java.util.Scanner;
-public class Armstrong2
+public class Armstrong
 {
     int num, counting;
     void getNumber ()
@@ -46,7 +46,7 @@ public class Armstrong2
     
     public static void m ()
     {
-        Armstrong2 obj = new Armstrong2 ();
+        Armstrong obj = new Armstrong ();
         obj.getNumber();
         obj.getDigit();
         obj.calculate ();
