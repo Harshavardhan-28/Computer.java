@@ -3,55 +3,40 @@ import java.util.Scanner;
 public class ISBN 
 {
     long isbn;
-    void getData ()
+    void getISBN ()
     {
         Scanner sc = new Scanner (System.in);
         System.out.println ("Enter the ISBN number");
         isbn = sc.nextLong ();
     }
     
-    int checkCount ()
-    {
-        long n = isbn;
-        int count = 0;
-    
-        while (n!=0)
-        {
-            n = n/10;
-            count++;
-        }
-        
-        return count;
-    }
-    
-    void checkNumber ()
+    void checkISBN ()
     {
         long n = isbn;
         long sum = 0;
         
-        while (n!=0)
-        {
-            for (int i = 10; i!=0; i--)
+            for (int i = 0; i<=9; i++)
             {
-                long d = n%10;
-                n = n/10;
-                sum = sum + (d*i);
+                for(int j=1; j<=10;j++){
+                long a= n%10;
+                long b= a*j;
+                sum = sum + b;
+                n=n/10;
             }
+        }
             if (sum%11 == 0)
                System.out.println ("Legal ISBN");
             else
                 System.out.println ("Illegal ISBN");
             }
             
-    }
+    
     
     public static void main ()
     {
         ISBN obj = new ISBN ();
-        obj.getData ();
-        if (obj.checkCount () == 10)
-            obj.checkNumber ();
-        else
-            System.out.println ("Invalid ISBN");
+        obj.getISBN();
+        obj.checkISBN();
+        
     }
 }
